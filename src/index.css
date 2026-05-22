@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-primary: 'Manrope', sans-serif;
+  --font-heading: 'Manrope', sans-serif;
+
+  
+  --color-primary: #0f8b8d;
+  --color-primary-active: #0a6f72;
+  --color-primary-light: #ebfbfb;
+  --color-primary-border: rgba(15, 139, 141, 0.18);
+  --color-success: #22c55e;
+  --color-danger: #e11d48;
+  --color-warning: #f59e0b;
+  --color-info: #2563eb;
+  --color-secondary: #e7ecf3;
+  --color-dark: #102a43;
+  --color-light: #f6f8fc;
+  --color-gray-100: #f7f9fc;
+  --color-gray-200: #e8edf4;
+  --color-gray-300: #d5dde8;
+  --color-gray-400: #a8b3c5;
+  --color-gray-500: #7f8aa3;
+  --color-gray-600: #5f6c86;
+  --color-gray-700: #40516b;
+  --color-gray-800: #243b53;
+  --color-gray-900: #102a43;
+  --surface-page: #f6f8fc;
+  --surface-card: #FFFFFF;
+  --surface-muted: #f8fbfd;
+  --table-grid: rgba(15, 139, 141, 0.18);
+  --table-head: #0a6f72;
+  --table-text: #243b53;
+  --table-subtext: #7f8aa3;
+  --radius-card: 1.5rem;
+  --radius-control: 0.875rem;
+}
+
+[data-theme='dark'] {
+  --color-primary: #36a3ff;
+  --color-primary-active: #1f8de8;
+  --color-primary-light: rgba(54, 163, 255, 0.14);
+  --color-primary-border: rgba(54, 163, 255, 0.3);
+  --color-dark: #f8fafc;
+  --color-light: #0f172a;
+  --color-gray-100: #111c30;
+  --color-gray-200: #1d2940;
+  --color-gray-300: #31405d;
+  --color-gray-400: #7f8ba3;
+  --color-gray-500: #94a3b8;
+  --color-gray-600: #cbd5e1;
+  --color-gray-700: #e2e8f0;
+  --color-gray-800: #edf2f7;
+  --color-gray-900: #f8fafc;
+  --surface-page: #020817;
+  --surface-card: #0f172a;
+  --surface-muted: #111c30;
+  --table-grid: rgba(54, 163, 255, 0.24);
+  --table-head: #7fd0ff;
+  --table-text: #e2e8f0;
+  --table-subtext: #94a3b8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-primary);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(15, 139, 141, 0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.06), transparent 22%),
+    linear-gradient(180deg, #f8fbff 0%, var(--surface-page) 42%, #f4f7fb 100%);
+  color: var(--color-gray-800);
+  font-family: var(--font-primary);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-gray-900);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Premium Utility Classes */
+.card-shadow {
+  box-shadow: 0 0.5rem 1.5rem 0.5rem rgba(0, 0, 0, 0.035);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-300);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Metronic Status Badges */
+.badge-live { background-color: #E8FFF3; color: #50CD89; }
+.badge-draft { background-color: #FFF8DD; color: #C98A00; }
+.badge-archived { background-color: #EEF2FF; color: #4F46E5; }
+.badge-action { background-color: #FFF1F2; color: #E11D48; }
+
+/* Transitions */
+.transition-standard {
+  transition: all 0.2s ease-in-out;
+}
+
+.app-button-solid {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-active) 100%) !important;
+  border-color: rgba(15, 139, 141, 0.2) !important;
+}
+
+.app-button-solid:not(:disabled):hover {
+  background: linear-gradient(135deg, var(--color-primary-active) 0%, #085b5e 100%) !important;
+}
+
+.app-button-outline {
+  border-color: var(--table-grid) !important;
+}
+
+.app-button-outline:not(:disabled):hover {
+  border-color: var(--color-primary) !important;
+}
+
+button[class*='bg-gray-900'],
+button[class*='bg-indigo-600'],
+button[class*='bg-[var(--color-dark)]'] {
+  background-color: var(--color-primary) !important;
+  border-color: transparent !important;
+  color: #fff;
+}
+
+button[class*='bg-gray-900']:not(:disabled):hover,
+button[class*='bg-indigo-600']:not(:disabled):hover,
+button[class*='bg-[var(--color-dark)]']:not(:disabled):hover {
+  background-color: var(--color-primary-active) !important;
+}
+
+.surface-card {
+  background: var(--surface-card);
+  border: 1px solid rgba(213, 221, 232, 0.8);
+  border-radius: var(--radius-card);
+  box-shadow: 0 18px 40px rgba(16, 42, 67, 0.06);
+}
+
+[data-theme='dark'] .surface-card {
+  border-color: rgba(49, 64, 93, 0.95);
+  box-shadow: 0 1.2rem 2.2rem rgba(2, 8, 23, 0.42);
+}
+
+.control-shell {
+  border: 1px solid var(--color-gray-200);
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: var(--radius-control);
+  transition: all 0.2s ease-in-out;
+}
+
+[data-theme='dark'] img {
+  filter: saturate(0.96);
+}
+
+.control-shell:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(15, 139, 141, 0.12);
+}
+
+@keyframes authFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes authFloatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes authGlow {
+  0%, 100% {
+    box-shadow: 0 22px 40px rgba(15, 23, 42, 0.14);
+  }
+  50% {
+    box-shadow: 0 28px 54px rgba(15, 23, 42, 0.22);
+  }
+}
+
+.catalog-float {
+  animation: authFloat 6s ease-in-out infinite;
+}
+
+.catalog-float-delay {
+  animation: authFloat 7.5s ease-in-out infinite;
+  animation-delay: -1.8s;
+}
+
+.catalog-float-slow {
+  animation: authFloatSlow 8s ease-in-out infinite;
+  animation-delay: -2.2s;
+}
+
+.auth-glow {
+  animation: authGlow 6s ease-in-out infinite;
+}
+
+.auth-field-shell {
+  padding: 1px;
+  border-radius: 1.25rem;
+  background: linear-gradient(120deg, rgba(111, 220, 232, 0.92), rgba(212, 223, 238, 0.82), rgba(255, 155, 103, 0.92));
+}
+
+.auth-field-inner {
+  position: relative;
+  border-radius: 1.18rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+  border: 1px solid rgba(232, 237, 244, 0.95);
+  transition: all 0.2s ease-in-out;
+}
+
+.auth-field-shell:focus-within .auth-field-inner {
+  box-shadow: 0 0 0 4px rgba(99, 216, 223, 0.16);
+  border-color: rgba(255, 155, 103, 0.42);
+}
