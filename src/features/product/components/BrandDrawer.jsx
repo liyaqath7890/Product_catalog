@@ -77,7 +77,7 @@ const BrandDrawer = ({ isOpen, mode = 'create', brand = null, onClose, onSave })
     <div className="fixed inset-0 z-[70] flex justify-end">
       <div className="absolute inset-0 bg-[var(--color-dark)]/35 backdrop-blur-sm" onClick={onClose} />
 
-      <aside className="relative z-10 flex h-full w-full max-w-[520px] flex-col overflow-hidden bg-white shadow-2xl animate-in slide-in-from-right duration-300">
+      <aside className="relative z-10 flex h-full w-full sm:max-w-[520px] flex-col overflow-hidden bg-white shadow-2xl animate-in slide-in-from-right duration-300">
         <div className="flex items-start justify-between gap-4 border-b border-[var(--table-grid)] px-6 py-5">
           <div>
             <h2 className="text-xl font-semibold text-[var(--color-gray-900)]">

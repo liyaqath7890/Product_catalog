@@ -1,4 +1,4 @@
-﻿import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   AlertTriangle,
@@ -465,34 +465,36 @@ const Dashboard = () => {
               </div>
             </div>
 
-            <div className="mt-5 overflow-hidden rounded-[1.4rem] border border-[var(--table-grid)] bg-white">
-              <div className="grid grid-cols-[1.2fr_1fr_0.8fr_0.8fr_0.9fr] border-b border-[var(--table-grid)] bg-[var(--surface-muted)] px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-[var(--color-gray-400)]">
-                <span>Order</span>
-                <span>Customer</span>
-                <span>Payment</span>
-                <span>Status</span>
-                <span className="text-right">Total</span>
-              </div>
-              <div className="divide-y divide-[var(--table-grid)]">
-                {orders.slice(0, 5).map((order) => (
-                  <div key={order.id} className="grid grid-cols-[1.2fr_1fr_0.8fr_0.8fr_0.9fr] items-center px-4 py-4 text-sm">
-                    <div>
-                      <p className="font-bold text-[var(--color-gray-900)]">{order.id}</p>
-                      <p className="text-xs text-[var(--color-gray-500)]">{order.date}</p>
+            <div className="mt-5 overflow-x-auto custom-scrollbar">
+              <div className="min-w-[650px] overflow-hidden rounded-[1.4rem] border border-[var(--table-grid)] bg-white">
+                <div className="grid grid-cols-[1.2fr_1fr_0.8fr_0.8fr_0.9fr] border-b border-[var(--table-grid)] bg-[var(--surface-muted)] px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-[var(--color-gray-400)]">
+                  <span>Order</span>
+                  <span>Customer</span>
+                  <span>Payment</span>
+                  <span>Status</span>
+                  <span className="text-right">Total</span>
+                </div>
+                <div className="divide-y divide-[var(--table-grid)]">
+                  {orders.slice(0, 5).map((order) => (
+                    <div key={order.id} className="grid grid-cols-[1.2fr_1fr_0.8fr_0.8fr_0.9fr] items-center px-4 py-4 text-sm">
+                      <div>
+                        <p className="font-bold text-[var(--color-gray-900)]">{order.id}</p>
+                        <p className="text-xs text-[var(--color-gray-500)]">{order.date}</p>
+                      </div>
+                      <div className="min-w-0">
+                        <p className="truncate font-semibold text-[var(--color-gray-800)]">{order.customer}</p>
+                        <p className="truncate text-xs text-[var(--color-gray-500)]">{order.email}</p>
+                      </div>
+                      <div className="text-xs font-semibold text-[var(--color-gray-600)]">{order.payment}</div>
+                      <div>
+                        <span className={`inline-flex rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] ${statusClass(order.status)}`}>
+                          {order.status}
+                        </span>
+                      </div>
+                      <div className="text-right font-bold text-[var(--color-gray-900)]">{formatCurrency(order.total)}</div>
                     </div>
-                    <div className="min-w-0">
-                      <p className="truncate font-semibold text-[var(--color-gray-800)]">{order.customer}</p>
-                      <p className="truncate text-xs text-[var(--color-gray-500)]">{order.email}</p>
-                    </div>
-                    <div className="text-xs font-semibold text-[var(--color-gray-600)]">{order.payment}</div>
-                    <div>
-                      <span className={`inline-flex rounded-full border px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] ${statusClass(order.status)}`}>
-                        {order.status}
-                      </span>
-                    </div>
-                    <div className="text-right font-bold text-[var(--color-gray-900)]">{formatCurrency(order.total)}</div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>

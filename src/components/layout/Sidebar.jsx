@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { LayoutDashboard, Box, Tags, ShoppingCart, Users, Settings, ChevronDown, Layers, PackagePlus, List, FolderPlus, FolderEdit, Warehouse, ArrowUpDown, CalendarClock, BadgeIndianRupee, Ruler, Boxes } from 'lucide-react';
 import AppLogo from './AppLogo';
 
-const Sidebar = ({ collapsed = false }) => {
+const Sidebar = ({ collapsed = false, onItemClick }) => {
   const location = useLocation();
   const navRef = useRef(null);
   const [openMenus, setOpenMenus] = useState(() => {
@@ -65,6 +65,7 @@ const Sidebar = ({ collapsed = false }) => {
       to={to}
       end={end}
       title={collapsed ? label : undefined}
+      onClick={onItemClick}
       className={({ isActive }) =>
         `flex items-center ${collapsed ? 'justify-center px-2' : 'gap-3 px-6'} py-2.5 text-[13px] font-semibold transition-all border-r-[3px] ${
           isActive
@@ -83,6 +84,7 @@ const Sidebar = ({ collapsed = false }) => {
       to={to}
       end={end}
       title={collapsed ? label : undefined}
+      onClick={onItemClick}
       className={({ isActive }) =>
         `flex items-center ${collapsed ? 'justify-center px-2' : 'gap-3 pl-14 pr-6'} py-2 text-[13px] font-medium transition-all border-r-[3px] ${
           isActive

@@ -410,7 +410,7 @@ const VariantProductPickerDrawer = ({ isOpen, products, onClose, onSelect }) => 
   return (
     <div className="fixed inset-0 z-[65] flex justify-end">
       <div className="absolute inset-0 bg-[var(--color-dark)]/30 backdrop-blur-sm" onClick={onClose} />
-      <aside className="relative z-10 flex h-full w-full max-w-[420px] flex-col overflow-hidden bg-white shadow-2xl animate-in slide-in-from-right duration-300">
+      <aside className="relative z-10 flex h-full w-full sm:max-w-[420px] flex-col overflow-hidden bg-white shadow-2xl animate-in slide-in-from-right duration-300">
         <div className="border-b border-[var(--table-grid)] px-6 py-5">
           <div className="flex items-start justify-between gap-4">
             <div>

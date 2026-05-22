@@ -169,7 +169,7 @@ const ProductVariantDrawer = ({ isOpen, product, onClose, onSave }) => {
   return (
     <div className="fixed inset-0 z-[70] flex justify-end">
       <div className="absolute inset-0 bg-[var(--color-dark)]/35 backdrop-blur-sm" onClick={onClose} />
-      <aside className="relative z-10 flex h-full w-full max-w-[540px] flex-col overflow-hidden bg-white shadow-2xl animate-in slide-in-from-right duration-300">
+      <aside className="relative z-10 flex h-full w-full sm:max-w-[540px] flex-col overflow-hidden bg-white shadow-2xl animate-in slide-in-from-right duration-300">
         <div className="flex items-center justify-between border-b border-[var(--table-grid)] px-6 py-5">
           <div>
             <h2 className="text-xl font-semibold text-[var(--color-gray-900)]">Manage Variants</h2>
@@ -215,8 +215,8 @@ const ProductVariantDrawer = ({ isOpen, product, onClose, onSave }) => {
                 <p className="mt-1 text-xs text-[var(--color-gray-500)]">{previewCount} combinations ready</p>
               </div>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-left text-sm">
+            <div className="overflow-x-auto custom-scrollbar">
+              <table className="w-full border-collapse text-left text-sm min-w-[500px]">
                 <thead className="bg-white text-[11px] font-bold uppercase tracking-[0.16em] text-[var(--color-gray-500)]">
                   <tr className="border-b border-[var(--table-grid)]">
                     <th className="border-r border-[var(--table-grid)] px-4 py-3">Size</th>

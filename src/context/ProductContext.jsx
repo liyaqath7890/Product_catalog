@@ -1,7 +1,8 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { generateProductBarcode, generateProductSku } from '../features/product/utils/productCodeUtils';
 import { useToast } from '../components/feedback/ToastProvider';
 
+const LOCAL_STORAGE_KEY = 'products';
 const ProductContext = createContext();
 
 const createVariant = (id, size, color, price, onHand) => ({
@@ -272,8 +273,23 @@ const normalizeProduct = (product) => {
 };
 
 export const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState(INITIAL_PRODUCTS.map(normalizeProduct));
+  const [products, setProducts] = useState(() => {
+    const stored = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        return parsed.map(normalizeProduct);
+      } catch (e) {
+        console.error('Failed to parse stored products', e);
+      }
+    }
+    return INITIAL_PRODUCTS.map(normalizeProduct);
+  });
   const { success } = useToast();
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(products));
+  }, [products]);
 
   const addProduct = (product) => {
     const normalizedProduct = normalizeProduct({
@@ -318,7 +334,7 @@ export const ProductProvider = ({ children }) => {
   const deleteProduct = (id) => {
     const removed = products.find((product) => product.id === id);
     setProducts((prev) => prev.filter((product) => product.id !== id));
-    success('Product deleted', `${removed?.name || 'Product'} was removed from the catalog.`);
+    success('Product deleted', `${removed?.name || 'Product'} was removed.`);
   };
 
   const deleteProducts = (ids) => {

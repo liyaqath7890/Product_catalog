@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Bell,
   ChevronRight,
@@ -247,7 +247,7 @@ const Header = ({ onToggleSidebar, sidebarCollapsed = false }) => {
             >
               <Menu size={20} />
             </button>
-            <div className="flex min-w-0 items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[var(--color-gray-400)]">
+            <div className="hidden sm:flex min-w-0 items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[var(--color-gray-400)]">
               <Link to="/" className="transition-colors hover:text-[var(--color-primary)]">Catalog</Link>
               {pathnames.length > 0 && <ChevronRight size={12} />}
               {pathnames.map((name, index) => {
@@ -306,7 +306,7 @@ const Header = ({ onToggleSidebar, sidebarCollapsed = false }) => {
         </div>
 
         {profileOpen ? (
-          <div className="absolute right-8 top-[76px] z-50 w-[320px] overflow-hidden rounded-[1.5rem] border border-[var(--table-grid)] bg-[var(--surface-card)] shadow-2xl">
+          <div className="absolute right-4 sm:right-8 top-[76px] z-50 w-[calc(100vw-32px)] sm:w-[320px] overflow-hidden rounded-[1.5rem] border border-[var(--table-grid)] bg-[var(--surface-card)] shadow-2xl">
             <div className="flex items-center gap-4 border-b border-[var(--table-grid)] px-5 py-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--color-primary-light)] font-black text-[var(--color-primary)]">{profileInitials}</div>
               <div>
@@ -338,7 +338,7 @@ const Header = ({ onToggleSidebar, sidebarCollapsed = false }) => {
       {activePanel ? <div className="fixed inset-0 z-30 bg-[var(--color-dark)]/25 backdrop-blur-sm" onClick={closeAll} /> : null}
 
       {activePanel === 'notifications' ? (
-        <aside className="fixed right-6 top-[84px] z-40 flex h-[calc(100vh-110px)] w-full max-w-[390px] flex-col overflow-hidden rounded-[1.5rem] border border-[var(--table-grid)] bg-[var(--surface-card)] shadow-2xl">
+        <aside className="fixed right-0 sm:right-6 top-[70px] sm:top-[84px] z-40 flex h-[calc(100vh-70px)] sm:h-[calc(100vh-110px)] w-full sm:max-w-[390px] flex-col overflow-hidden rounded-none sm:rounded-[1.5rem] border-l sm:border border-[var(--table-grid)] bg-[var(--surface-card)] shadow-2xl">
           <div className="flex items-center justify-between border-b border-[var(--table-grid)] px-5 py-4">
             <h2 className="text-xl font-semibold text-[var(--color-gray-900)]">Notifications</h2>
             <button type="button" onClick={closeAll} className="rounded-xl p-2 text-[var(--color-gray-400)] hover:bg-[var(--surface-muted)] hover:text-[var(--color-gray-700)]">
@@ -403,7 +403,7 @@ const Header = ({ onToggleSidebar, sidebarCollapsed = false }) => {
       ) : null}
 
       {activePanel === 'chat' ? (
-        <aside className="fixed right-6 top-[84px] z-40 flex h-[calc(100vh-110px)] w-full max-w-[380px] flex-col overflow-hidden rounded-[1.5rem] border border-[var(--table-grid)] bg-[var(--surface-card)] shadow-2xl">
+        <aside className="fixed right-0 sm:right-6 top-[70px] sm:top-[84px] z-40 flex h-[calc(100vh-70px)] sm:h-[calc(100vh-110px)] w-full sm:max-w-[380px] flex-col overflow-hidden rounded-none sm:rounded-[1.5rem] border-l sm:border border-[var(--table-grid)] bg-[var(--surface-card)] shadow-2xl">
           <div className="flex items-center justify-between border-b border-[var(--table-grid)] px-5 py-4">
             <h2 className="text-xl font-semibold text-[var(--color-gray-900)]">Chat</h2>
             <button type="button" onClick={closeAll} className="rounded-xl p-2 text-[var(--color-gray-400)] hover:bg-[var(--surface-muted)] hover:text-[var(--color-gray-700)]">

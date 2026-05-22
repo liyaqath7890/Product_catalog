@@ -82,26 +82,25 @@ const BrandTable = ({
   );
 
   return (
-      <CustomTable
-        columns={columns}
-        data={visibleBrands}
-        actions={actions}
-        showFilters={false}
-        fillHeight
-        emptyTitle="No brands found"
-        emptyDescription="Try a different search term or add a new brand to the catalog."
-        footer={
-          <CustomTableFooter
-            rowsPerPage={rowsPerPage}
-            onRowsPerPageChange={onRowsPerPageChange}
-            summary={`Showing ${brands.length === 0 ? 0 : startIndex + 1} - ${Math.min(brands.length, startIndex + visibleBrands.length)} of ${brands.length} brands`}
-            page={currentPage}
-            totalPages={totalPages}
-            onPageChange={onPageChange}
-          />
-        }
-      />
-    </div>
+    <CustomTable
+      columns={columns}
+      data={visibleBrands}
+      actions={actions}
+      showFilters={false}
+      fillHeight
+      emptyTitle="No brands found"
+      emptyDescription="Try a different search term or add a new brand to the catalog."
+      footer={
+        <CustomTableFooter
+          rowsPerPage={rowsPerPage}
+          onRowsPerPageChange={onRowsPerPageChange}
+          summary={`Showing ${brands.length === 0 ? 0 : startIndex + 1} - ${Math.min(brands.length, startIndex + visibleBrands.length)} of ${brands.length} brands`}
+          page={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
+        />
+      }
+    />
   );
 };
 
