@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   cacheDir: path.resolve(process.env.LOCALAPPDATA || process.cwd(), 'maskart-cat-vite-cache'),
   build: {
-    outDir: 'build',
+    outDir: 'dist',
     emptyOutDir: false,
     rollupOptions: {
       output: {
